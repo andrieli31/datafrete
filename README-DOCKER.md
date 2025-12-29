@@ -1,13 +1,13 @@
-# 🐳 DataFrete - Instalação com Docker
+# DataFrete - Instalação com Docker
 
 Este guia explica como executar o projeto DataFrete usando Docker com PHP 8.2.
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 - Docker Desktop instalado e rodando
 - Docker Compose (vem com Docker Desktop)
 
-## 🚀 Início Rápido
+## Início Rápido
 
 ### 1. Execute o script de inicialização
 
@@ -34,7 +34,7 @@ docker-compose up -d
 - **API:** http://localhost:8080/api/distances
 - **phpMyAdmin:** http://localhost:8081
 
-## 📝 Comandos Úteis
+## Comandos Úteis
 
 ### Iniciar containers
 ```bash
@@ -66,7 +66,7 @@ docker-compose exec php vendor/bin/phinx migrate
 docker-compose exec php composer install
 ```
 
-## 🔧 Configuração
+## Configuração
 
 ### Variáveis de Ambiente
 
@@ -88,7 +88,7 @@ Para alterar, edite o arquivo `docker-compose.yml` ou crie um arquivo `.env`.
 
 Para alterar as portas, edite o arquivo `docker-compose.yml`.
 
-## 🗄️ Banco de Dados
+## Banco de Dados
 
 O banco de dados é criado automaticamente quando o container MySQL inicia.
 
@@ -104,7 +104,7 @@ O banco de dados é criado automaticamente quando o container MySQL inicia.
 docker-compose exec mysql mysql -uroot -proot datafrete
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Erro: "Port already in use"
 
@@ -125,7 +125,7 @@ docker-compose down -v
 docker-compose up -d --build
 ```
 
-## 📦 Estrutura Docker
+## Estrutura Docker
 
 ```
 datafrete/
@@ -139,7 +139,7 @@ datafrete/
 └── .dockerignore            # Arquivos ignorados no build
 ```
 
-## 🔄 Atualizar o Projeto
+## Atualizar o Projeto
 
 ```bash
 # Parar containers

@@ -106,37 +106,6 @@ Abra seu navegador e acesse:
 - **PHP Built-in:** `http://localhost:8080`
 
 
-## Estrutura do Projeto
-
-```
-datafrete/
-├── backend/
-│   ├── api/
-│   │   └── index.php          # Endpoint principal da API
-│   ├── src/
-│   │   ├── Config/
-│   │   │   └── Database.php    # Configuração do banco de dados
-│   │   ├── Models/
-│   │   │   └── Distance.php    # Modelo de distâncias
-│   │   └── Services/
-│   │       ├── BrasilApiService.php    # Integração com Brasil API
-│   │       ├── CacheService.php        # Sistema de cache
-│   │       ├── DistanceCalculator.php  # Cálculo de distância (Haversine)
-│   │       ├── CsvImporter.php         # Importação CSV
-│   │       └── Logger.php              # Sistema de logs
-│   ├── cache/                  # Cache de consultas (criado automaticamente)
-│   ├── logs/                   # Logs do sistema (criado automaticamente)
-│   └── uploads/                # Uploads temporários (criado automaticamente)
-├── frontend/
-│   ├── index.html              # Interface principal
-│   └── app.js                  # Aplicação Vue.js
-├── database/
-│   └── migrations/             # Migrations do Phinx
-├── composer.json
-├── phinx.php                   # Configuração do Phinx
-└── README.md
-```
-
 
 ## API Endpoints
 
