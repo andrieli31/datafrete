@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # API routes
+    RewriteCond %{REQUEST_URI} ^/api/
+    RewriteRule ^api/(.*)$ /backend/api/index.php?route=$1 [QSA,L]
+
+    # Frontend
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteRule ^(.*)$ /frontend/$1 [L]
+</IfModule>
+

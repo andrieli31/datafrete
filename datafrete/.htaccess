@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /datafrete/
+
+# Redireciona para o frontend
+RewriteCond %{REQUEST_URI} ^/datafrete/?$
+RewriteRule ^$ frontend/index.html [L]
+
+# API routes
+RewriteCond %{REQUEST_URI} ^/datafrete/api/
+RewriteRule ^api/(.*)$ backend/api/index.php?route=$1 [QSA,L]
+

@@ -1,0 +1,10 @@
+/vendor/
+/.env
+/backend/cache/*
+!/backend/cache/.gitkeep
+/backend/logs/*
+!/backend/logs/.gitkeep
+/backend/uploads/*
+!/backend/uploads/.gitkeep
+composer.lock
+

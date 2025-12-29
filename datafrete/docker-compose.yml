@@ -1,0 +1,62 @@
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: datafrete_php
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./.htaccess.docker:/var/www/html/.htaccess
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=datafrete
+      - DB_USER=root
+      - DB_PASS=root
+    networks:
+      - datafrete_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: datafrete_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: datafrete
+      MYSQL_USER: datafrete
+      MYSQL_PASSWORD: datafrete
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - datafrete_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: datafrete_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - datafrete_network
+
+volumes:
+  mysql_data:
+
+networks:
+  datafrete_network:
+    driver: bridge
+

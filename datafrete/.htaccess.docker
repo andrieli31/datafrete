@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteBase /
+
+# API routes
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ /backend/api/index.php?route=$1 [QSA,L]
+
+# Frontend - redireciona raiz para frontend
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /frontend/index.html [L]
+
+# Frontend - serve arquivos estáticos
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/api/
+RewriteCond %{REQUEST_URI} !^/backend/
+RewriteRule ^(.*)$ /frontend/$1 [L]
+
