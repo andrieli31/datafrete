@@ -2,7 +2,7 @@
 
 Sistema completo para cadastro e cálculo de distâncias entre CEPs, desenvolvido com PHP (backend) e Vue.js 2 + Bootstrap 4 (frontend).
 
-## 📋 Requisitos
+## Requisitos
 
 - PHP >= 7.4
 - MySQL >= 5.7 ou MariaDB >= 10.2
@@ -10,7 +10,7 @@ Sistema completo para cadastro e cálculo de distâncias entre CEPs, desenvolvid
 - Servidor web (Apache/Nginx) ou PHP built-in server
 - Extensões PHP: PDO, curl, json
 
-## 🚀 Instalação
+## Instalação
 
 ### 1. Clone o repositório ou extraia os arquivos
 
@@ -105,9 +105,8 @@ Abra seu navegador e acesse:
 - **Apache/Nginx:** `http://datafrete.local/frontend/` ou `http://localhost/datafrete/frontend/`
 - **PHP Built-in:** `http://localhost:8080`
 
-**Dica:** Para facilitar, consulte também o arquivo `INSTALACAO.md` com um guia passo a passo mais detalhado.
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 datafrete/
@@ -138,30 +137,8 @@ datafrete/
 └── README.md
 ```
 
-## 🔧 Funcionalidades
 
-### ✅ Requisitos Implementados
-
-- ✅ Persistência em banco de dados (CEP origem, CEP destino, distância, datas)
-- ✅ Tela de exibição de lista de distâncias
-- ✅ Opção de adicionar nova distância
-- ✅ Validação de CEP através da Brasil API
-- ✅ Cálculo de distância entre coordenadas (fórmula de Haversine)
-- ✅ Importação em massa via arquivo CSV
-- ✅ Backend em PHP
-- ✅ README com instruções
-
-### 🌟 Funcionalidades Extras (Recomendações)
-
-- ✅ **Cache de consultas da API** - Consultas de CEP são cacheadas por 24 horas
-- ✅ **Bootstrap 4** - Interface moderna e responsiva
-- ✅ **VueJS 2** - Framework JavaScript reativo
-- ✅ **Phinx** - Sistema de migrations
-- ✅ **Limite de cálculos** - Máximo de 100 cálculos por importação para evitar bloqueio da API
-- ✅ **Logs estruturados** - Sistema de logs em JSON
-- ⚠️ **RabbitMQ** - Não implementado (requer instalação adicional, pode ser adicionado posteriormente)
-
-## 📡 API Endpoints
+## API Endpoints
 
 ### GET `/distances`
 Lista todas as distâncias cadastradas.
@@ -242,7 +219,7 @@ Valida um CEP através da Brasil API.
 }
 ```
 
-## 📝 Formato do CSV para Importação
+## Formato do CSV para Importação
 
 O arquivo CSV deve conter as seguintes colunas:
 
@@ -257,7 +234,7 @@ CEP origem,CEP fim
 - Cada linha deve conter exatamente 2 colunas
 - O limite de processamento é de 100 registros por importação
 
-## 🔍 Cálculo de Distância
+## Cálculo de Distância
 
 O sistema utiliza a **fórmula de Haversine** para calcular a distância entre duas coordenadas geográficas:
 
@@ -274,7 +251,7 @@ Onde:
 
 A distância é retornada em **quilômetros** com 2 casas decimais.
 
-## 🗄️ Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
 
 ### Tabela `distances`
 
@@ -289,7 +266,7 @@ A distância é retornada em **quilômetros** com 2 casas decimais.
 
 **Índice único:** `(cep_origem, cep_destino)` - Evita duplicatas
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Erro de conexão com banco de dados
 - Verifique as credenciais no arquivo `.env`
@@ -306,15 +283,4 @@ A distância é retornada em **quilômetros** com 2 casas decimais.
 - Se usar PHP built-in server, certifique-se de usar a rota correta
 - Verifique a constante `API_BASE_URL` no `frontend/app.js`
 
-### Cache não funciona
-- Verifique permissões da pasta `backend/cache/`
-- Certifique-se de que o PHP tem permissão de escrita
-
-## 📄 Licença
-
-Este projeto foi desenvolvido como desafio técnico.
-
-## 👨‍💻 Autor
-
-Desenvolvido para o desafio técnico DataFrete.
 
